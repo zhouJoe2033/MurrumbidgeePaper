@@ -1,0 +1,74 @@
+---
+title: "Operating Budget Program Summary By Expensiture Category"
+subtitle: "Murrumbidgee Paper"
+execute:
+  echo: false
+  message: false
+  warning: false
+author: 
+  - Joe Zhou
+thanks: "Code and data are available at: LINK."
+date: today
+date-format: long
+mainfont: "Hiragino Sans GB"
+format:
+  pdf:
+    documentclass: scrartcl
+    geometry:
+      - top=30mm
+      - left=20mm
+      - heightrounded
+    fontfamily: libertinus
+    colorlinks: true
+    toc: true
+classoption: abstract
+abstract: | 
+  text
+include_in_header:
+  text:
+    \renewcommand{\abstractname}{Abstract}
+bibliography: references.bib
+---
+
+```{r}
+library(dplyr)
+library(modelsummary)
+library(tidyverse)
+library(ggplot2)
+library(rstanarm)
+library(here)
+library(arrow)
+library(tidybayes)
+library(tidyverse)
+library(marginaleffects)
+library(readxl)
+library(httr)
+```
+
+```{r}
+#| output: false
+
+
+```
+
+
+# Introduction
+
+
+# Data
+
+# Model
+
+# Results
+
+# Discussion
+
+
+
+
+\newpage
+
+
+# References
+@citeR
+
