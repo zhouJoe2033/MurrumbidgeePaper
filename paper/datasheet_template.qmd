@@ -152,5 +152,3 @@ bibliography: references.bib
 
 
 \newpage
-
-# References
