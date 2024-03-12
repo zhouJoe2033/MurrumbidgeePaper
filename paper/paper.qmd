@@ -225,10 +225,11 @@ Transparency and Accountability: By making this data publicly accessible, the Ci
 Overall, the "Budget Operating Budget Program Summary by Expenditure Category" dataset serves as a foundational resource for understanding the financial landscape of the City of Toronto. It facilitates evidence-based decision-making, fosters transparency and accountability in governance, and empowers citizens to participate in shaping the future of their city.
 
 
-
 \newpage
 
 
 # References
 @citeR
 @ChatGPT
+@opendatatoronto
+
