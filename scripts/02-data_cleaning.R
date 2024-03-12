@@ -29,23 +29,26 @@ Service_list <- unique(cleaned_data$Service)
 CategoryName_list <- unique(cleaned_data$CategoryName)
 ExpenseOrRevenue_list <- unique(cleaned_data$ExpenseOrRevenue)
 
-
-
 for(i in 1:length(cleaned_data$Program)){
   cleaned_data$Program[i] = grep(cleaned_data$Program[i], Program_list)
 }
 for(i in 1:length(cleaned_data$Service)){
-  cleaned_data$Service[i] = grep(cleaned_data$Service[i], Service_list)
+    cleaned_data$Service[i] = grep(cleaned_data$Service[i], Service_list)
 }
 for(i in 1:length(cleaned_data$CategoryName)){
-  cleaned_data$CategoryName[i] = grep(cleaned_data$CategoryName[i], CategoryName_list)
+  cleaned_data$CategoryName[i] = grep(cleaned_data$CategoryName[i], 
+                                      CategoryName_list)
 }
 for(i in 1:length(cleaned_data$ExpenseOrRevenue)){
-  cleaned_data$ExpenseOrRevenue[i] = grep(cleaned_data$ExpenseOrRevenue[i], ExpenseOrRevenue_list)
+  cleaned_data$ExpenseOrRevenue[i] = grep(cleaned_data$ExpenseOrRevenue[i], 
+                                          ExpenseOrRevenue_list)
 }
 
 
-
+cleaned_data$Program <- as.numeric(cleaned_data$Program)
+cleaned_data$CategoryName <- as.numeric(cleaned_data$CategoryName)
+cleaned_data$Service <- as.numeric(cleaned_data$Service)
+cleaned_data$ExpenseOrRevenue <- as.numeric(cleaned_data$ExpenseOrRevenue)
 
 
 # cleaned_data <- 
@@ -114,12 +117,6 @@ for(i in 1:length(cleaned_data$ExpenseOrRevenue)){
 #   ) |>
 #   select(Program, Service)
 
-
-
-
-
-
-  
 
 
 
