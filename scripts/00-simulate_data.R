@@ -13,9 +13,12 @@ library(marginaleffects)
 
 
 #### Data Path ####
+#file path of data from .parquet format
 input_file_path_data <- here("data", "analysis_data","data.parquet")
-input_file_path_cleaned_data <- here("data", "analysis_data","cleaned_data.parquet")
+input_file_path_cleaned_data <- 
+  here("data", "analysis_data","cleaned_data.parquet")
 
+#file path of regression model from .rds format
 reg_amount_program_path <- 
   here("models", "reg_amount_program_expenseOrRevenue.rds")
 reg_amount_program_expenseOrRevenue_path <- 
@@ -27,8 +30,10 @@ reg_amount_program_expenseOrRevenuw_categoryName_service_path <-
 
 
 #### Read data ####
+#read data from .parquet format
 cleaned_data <- read_parquet(input_file_path_cleaned_data)
 
+#read regression model from .rds format
 reg_amount_program = readRDS(reg_amount_program_path)
 reg_amount_program_expenseOrRevenue = 
   readRDS(reg_amount_program_expenseOrRevenue_path)
@@ -39,6 +44,7 @@ reg_amount_program_expenseOrRevenuw_categoryName_service =
 
 
 #### Simulate data ####
+#plot of Amount and Program
 cleaned_data |> 
   ggplot(aes(x=Program, y=Amount, alpha=0.001)) +
   geom_point() +
@@ -47,18 +53,21 @@ cleaned_data |>
   scale_x_log10() + 
   scale_y_log10()
 
+#plot of Amount and CategoryName
 cleaned_data |> 
   ggplot(aes(x=CategoryName, y=Amount, alpha=0.11)) +
   geom_point() +
   scale_x_log10() + 
   scale_y_log10()
 
+#plot of Amount and ExpensenOrRevenue
 cleaned_data |> 
   ggplot(aes(x=ExpenseOrRevenue, y=Amount, alpha=0.11)) +
   geom_point() +
   scale_x_log10() + 
   scale_y_log10()
 
+#base plot of Amount and Program
 base_plot <- 
   cleaned_data |>
   ggplot(aes(x = Program, y = Amount)) +
@@ -68,7 +77,6 @@ base_plot <-
     y = "Amount"
   ) +
   theme_classic()
-
 base_plot +
   geom_smooth(
     method = "glm",
@@ -78,6 +86,7 @@ base_plot +
     formula = "y ~ x"
   )
 
+#Statistical results of established models
 modelsummary(
   list(
     "Program" = reg_amount_program,
@@ -87,34 +96,27 @@ modelsummary(
   fmt = 3
 )
 
+#Table of data samples
 kable(head(cleaned_data, n = 10))
 
-
-
-
+#Plot of predictions of amount and program
 plot_predictions(reg_amount_program, 
                  condition = "Program") +
   labs(x = "Program", y = "Amount") +
   theme_classic()
 
 
-
+# more plots
 pp_check(reg_amount_program) +
   theme_classic() +
   theme(legend.position = "bottom")
-
 posterior_vs_prior(reg_amount_program) +
   theme_minimal() +
   scale_color_brewer(palette = "Set1") +
   theme(legend.position = "bottom") +
   coord_flip()
 
-
-
-
-
-
-
+# predictions of amount and program based on the type of ExpenseOrRevenue
 amount_predictions <-
   predictions(reg_amount_program_expenseOrRevenue) |>
   as_tibble()

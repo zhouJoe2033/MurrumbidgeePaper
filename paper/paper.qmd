@@ -194,9 +194,33 @@ Here's a proposed measurement framework:
 By applying this measurement framework, stakeholders can gain a comprehensive understanding of the "Approved Operating Budget Summary 2016" dataset and its implications for city governance, financial management, and service delivery in Toronto.
 
 ## Data Summary
+The dataset "Approved Operating Budget Summary 2016" from the City of Toronto's Open Data portal provides a comprehensive overview of the city's approved operating budget for the year 2016. Here's a summary of the data:
 
-Overall, the observation number is 1312 and the amount variable has a minimum number -3.931e+09 and a maximum number 1.273e+09, the median of the amount variable is 3.583e+04 and the first quartile is -1.935e_05, and the third quartile of amount is 1.057e+06.
-The correlation relationship among these variables are Amount is positively correlated to the Program variable and Amount is negatively correlated to the ExpenseOrRevenue and Categoram Name variable.
+1. **Source**: The data is sourced from the City of Toronto's official records and is made available through their Open Data portal.
+
+2. **Scope**: The dataset covers the approved operating budget for various programs and services provided by the City of Toronto for the fiscal year 2016.
+
+3. **Temporal Coverage**: The dataset specifically focuses on the fiscal year 2016, providing detailed information about budget allocations, expenditures, and financial planning for that specific period.
+
+4. **Expenditure Categories**: The operating budget is likely broken down into different expenditure categories, which may include:
+   - Personnel Costs: Salaries, wages, benefits of city employees.
+   - Supplies and Services: Expenses related to procuring supplies, services, and contracts.
+   - Maintenance and Repairs: Costs associated with maintaining and repairing city infrastructure and facilities.
+   - Utilities: Expenses for utilities such as electricity, water, and gas.
+   - Capital Costs: Expenditures related to capital projects and investments.
+   - Grants and Subsidies: Funding provided to external organizations or individuals for various purposes.
+   - Debt Servicing: Payments towards servicing the city's debts.
+   - Other Expenses: Miscellaneous expenses not falling into the above categories.
+
+5. **Program Summary**: The data likely provides a breakdown of expenditures by program or department within the City of Toronto. This allows stakeholders to understand how resources are allocated across different areas of city operations.
+
+6. **Granularity**: The dataset may offer detailed breakdowns of expenditures within each category, enabling users to analyze spending patterns at a granular level.
+
+7. **Format**: The data is typically provided in a spreadsheet format, such as Excel, with rows representing different programs or expenditure categories and columns representing fiscal variables such as budget amounts, actual expenditures, variances, etc.
+
+8. **Accessibility**: The dataset is publicly accessible through the City of Toronto's Open Data portal, allowing researchers, policymakers, journalists, and the general public to analyze and utilize the information for various purposes such as budget analysis, transparency, and accountability.
+
+Users interested in detailed budget analysis, resource allocation trends, or financial planning within the City of Toronto for the year 2016 can leverage this dataset to derive valuable insights and inform decision-making processes.
 
 # Model {#sec-model}
 ## Models
@@ -222,15 +246,15 @@ The model proposed is a multiple linear regression model, where the dependent va
 
 1. **Program (Categorical)**:
    - Justification: Program represents different programs or initiatives funded by the operating budget. Including Program as a predictor allows us to assess the impact of each program on the budget amount. For example, certain programs may require higher funding levels due to their scale or importance, while others may have lower budget allocations.
-   - Interpretation: The coefficient (\(\beta_1\)) associated with Program indicates the change in the budget amount for a one-unit change in the program variable, holding other variables constant.
+   - Interpretation: The coefficient ($\beta_1$) associated with Program indicates the change in the budget amount for a one-unit change in the program variable, holding other variables constant.
 
 2. **ExpenseOrRevenue (Categorical)**:
    - Justification: ExpenseOrRevenue categorizes budget allocations as either expenses or revenues. This variable captures the nature of the budget item, whether it represents an expenditure incurred by the city or a source of revenue received.
-   - Interpretation: The coefficient (\(\beta_2\)) associated with ExpenseOrRevenue represents the difference in budget amounts between expenses and revenues, controlling for other variables. It helps understand how different types of budget items contribute to the overall budget amount.
+   - Interpretation: The coefficient ($\beta_2$) associated with ExpenseOrRevenue represents the difference in budget amounts between expenses and revenues, controlling for other variables. It helps understand how different types of budget items contribute to the overall budget amount.
 
 3. **CategoryName (Categorical)**:
    - Justification: CategoryName categorizes budget allocations into different expenditure categories, such as transportation, health, education, etc. Including CategoryName as a predictor enables us to analyze the influence of specific spending categories on the budget amount.
-   - Interpretation: The coefficient (\(\beta_3\)) associated with CategoryName indicates the change in the budget amount for a one-unit change in the category variable, holding other variables constant. It helps identify which expenditure categories have a significant impact on the overall budget amount.
+   - Interpretation: The coefficient ($\beta_3$) associated with CategoryName indicates the change in the budget amount for a one-unit change in the category variable, holding other variables constant. It helps identify which expenditure categories have a significant impact on the overall budget amount.
 
 Overall, this multiple linear regression model allows us to understand how different programs, expense types, and expenditure categories contribute to the total operating budget amount. By examining the coefficients associated with each predictor variable, we can identify the factors that drive budgetary decisions and allocations within the City of Toronto for the fiscal year 2016.
 
