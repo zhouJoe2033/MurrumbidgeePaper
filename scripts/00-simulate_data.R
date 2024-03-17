@@ -1,5 +1,6 @@
 #### Workspace setup ####
 library(dplyr)
+library(knitr)
 library(modelsummary)
 library(tidyverse)
 library(ggplot2)
@@ -85,6 +86,10 @@ modelsummary(
   ),
   fmt = 3
 )
+
+kable(head(cleaned_data, n = 10))
+
+
 
 
 plot_predictions(reg_amount_program, 
